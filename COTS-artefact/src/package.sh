@@ -1,0 +1,1 @@
+cd /home/ubuntu/setts-interface/tmp/ && sbt assembly
