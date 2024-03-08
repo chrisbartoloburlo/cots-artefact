@@ -39,7 +39,7 @@ Testing a REST API requires us to generate a test driver. To do so, we first nee
 
 1. the OpenAPI specification of the SUT, which is typically available as part of the REST APIs and documentation of the SUT itself;
 2. the COpenAPI model; and
-3. optionally, a “preamble” Scala file containing auxiliary definitions (e.g., functions that check assertions, or custom generators to produce randomised inputs for the SUT).
+3. optionally, a preamble Scala file containing auxiliary definitions (e.g., functions that check assertions, or custom generators to produce randomised inputs for the SUT).
 
 COTS takes as input the COpenAPI model and the optional preamble, and generates the Scala source code of an executable test driver that interacts with the SUT according to the model. The test driver, in turn, interacts with the REST API exposed by the SUT by using a Scala API which is auto-generated from the provided OpenAPI specification, using the open-source tool [OpenAPI Generator](https://github.com/chrisbartoloburlo/openapi-generator). When the test driver runs, it invokes such Scala API methods to send HTTP requests to the SUT, and to receive and parse its responses; the model determines which requests are sent (and in what order) by the test driver, and which responses are expected.
 
@@ -54,10 +54,15 @@ Next, follow these steps to generate and package a test driver:
 1. Run the command: `python3 main.py`
 2. A GUI window should pop up. Follow the steps shown on the window, selecting the respectful directories:
    i. *Select the specification file.* Click on the first button and select `COTS-examples/petclinic/petclinic.st`.
+
    ii. *Select the OpenAPI schema file.* Click on the second button and select `COTS-examples/petclinic/openapi.yml`.
+
    iii. *Select the Util file.* Click on the third button and select `COTS-examples/petclinic/util.scala`.
+
    iv. *Write the respective package name in the text box.* In this case, write `petclinic`.
+
    v. *Select a directory where to place the generated driver*.
+   
    vi. *Finally, click on Generate test driver.* If the steps were followed correctly, this will generate a zip file in the location that was previously selected. 
 3. Unzip the generated zip file and open a terminal in it. Execute `sbt assembly` (make sure that the environment is setup with JVM 11) which will package the driver files, avoiding compilation before executing the driver.
 
