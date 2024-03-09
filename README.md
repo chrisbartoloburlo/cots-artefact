@@ -1,5 +1,5 @@
 # COTS: Connected OpenAPI Test Synthesis for RESTful Applications (artefact)
-This is the repository for COTS, a model-based testing tool for RESTful applications based on the DSL COpenAPI.
+This is the repository for COTS, a model-based testing tool for RESTful applications based on the DSL COpenAPI. This repository contains a version of the tool with a GUI interface to allow the user to test systems, to run the experiments found in the paper, download the files in [this link](https://doi.org/10.5281/zenodo.10800068) and follow the instructions there.
 
 ## Requirements
 
